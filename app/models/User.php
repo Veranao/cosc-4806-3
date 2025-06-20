@@ -41,6 +41,13 @@ class User {
 		} else {
       
       $this -> logLoginAttempt($username, 'fail');
+
+      $db = db_connect();
+      $statement = $db->prepare("SELET COUNT(*) FROM logs");
+      $statement->execute();
+      $count = $statement->fetchColumn();
+      echo "total log attempts recorded: ". $count;
+      die;
       
 			if(isset($_SESSION['failedAuth'])) {
 				$_SESSION['failedAuth'] ++; //increment
