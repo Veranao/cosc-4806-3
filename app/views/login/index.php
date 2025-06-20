@@ -3,7 +3,7 @@
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-12">
-                <h1>You are not logged in</h1>
+                <h1>Login Page for Assignment 3</h1>
             </div>
         </div>
     </div>
@@ -21,9 +21,12 @@
 				<input required type="password" class="form-control" name="password">
 			</div>
             <br>
-		    <button type="submit" class="btn btn-primary">Login</button>
+		    <button type="submit" class="btn btn-primary" style="margin-bottom: 10px">Login</button>
 		</fieldset>
 		</form> 
+		<form action="/create.php" method="get">
+			<button type="submit" class="btn btn-primary"> Create Account </button>
+		</form>
 	</div>
 </div>
     <?php require_once 'app/views/templates/footer.php' ?>
