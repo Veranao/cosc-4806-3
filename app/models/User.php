@@ -58,5 +58,9 @@ class User {
     $statement->execute();
   }
 
+  public function checkUserExists($username) {
+    $user = $this->get_user($username);
+    return $user != null;
+  }
   
 }

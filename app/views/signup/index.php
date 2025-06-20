@@ -1,25 +1,48 @@
+<?php require_once 'app/views/templates/headerPublic.php'?>
+<?php $error = $data['error'] ?? null; ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Sign up</title>
 </head>
 <body>
-    <h1>Welcome to the Sign Up Page for Assignment 2!</h1>
+    <h1>Welcome to the Create a user page for assignment 3!</h1>
 
-    <form action="" method="post">
-        <label>Username:</label>
-        <input type="text" name="username" placeholder="Username..."><br>
+    <div class="col-sm-auto">
+    <form action="/create/submit" method="post" >
+    <fieldset>
+        
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input required type="text" class="form-control" name="username">
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input required type="password" class="form-control" name="password">
+        </div>
 
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="Password..."><br>
+        <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input required type="password" class="form-control" name="confirm_password">
+        </div>
+        
+        <br>
 
-        <label>Validate Password:</label>
-        <input type="password" name="validate_password" placeholder="Re-enter password..."><br>
-
-        <input type="submit" value="Create Account" name="SubmitButton">
-        <a href="index.php"><button type="button">Cancel</button></a><br>
-
-        <div style="color:red;"><?php echo isset($this) ? $this->message : $message; ?></div>
+        <button type="submit" class="btn btn-primary"> Create Account </button>
+        
+        <a href="index.php">
+            <button type="button" class="btn btn-secondary">Cancel</button>
+        </a>
+        
+        <br>
+        
     </form>
+    </div>
+
+    <?php if ($error): ?>
+        <p style="color: red"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
+        
 </body>
 </html>
