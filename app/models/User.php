@@ -29,10 +29,10 @@ class User {
         $statement->bindValue(':name', $username);
         $statement->execute();
         $rows = $statement->fetch(PDO::FETCH_ASSOC);
-        echo $username;
+        //echo $username;
 		
 		if (password_verify($password, $rows['password'])) {
-      echo $password;
+      //echo $password;
 			$_SESSION['auth'] = 1;
 			$_SESSION['username'] = ucwords($username);
 			unset($_SESSION['failedAuth']);
@@ -57,10 +57,19 @@ class User {
     $statement->bindValue(':password', $hashed);
     $statement->execute();
   }
-
+  
   public function checkUserExists($username) {
     $user = $this->get_user($username);
     return $user != null;
+  }
+
+  public function get_user ($username) {
+    $dbh = db_connect();
+    $statement = $dbh->prepare("select * from users where username = :username");
+    $statement->bindValue(':username', $username);
+    $statement->execute();
+    $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return reset($rows);
   }
   
 }

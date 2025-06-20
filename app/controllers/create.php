@@ -20,7 +20,7 @@ class Create extends Controller {
               }
 
               if ($password !== $confirm) {
-                  $this->view('signup/index', ['error' => 'Passwords do not match']);
+                  $this->view('signup/index', ['error' => 'Passwords do not match. Please try again']);
                   return;
               }
 
