@@ -39,6 +39,9 @@ class User {
 			header('Location: /home');
 			die;
 		} else {
+      
+      $this -> logLoginAttempt($username, 'fail');
+      
 			if(isset($_SESSION['failedAuth'])) {
 				$_SESSION['failedAuth'] ++; //increment
 			} else {
@@ -70,6 +73,14 @@ class User {
     $statement->execute();
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
     return reset($rows);
+  }
+
+  public function logLoginAttempt($username, $attempt) {
+    $db = db_connect();
+    $statement = $db->prepare("INSERT INTO logs (username, attempt) VALUES (:username, ");
+    $statement->bindValue(':username', $username);
+    $statement->bindValue(':attempt', $attempt);
+    $statement->execute();
   }
   
 }
