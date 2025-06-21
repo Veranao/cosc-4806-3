@@ -15,6 +15,15 @@
 			echo "This is unsuccessful attempt number " . $_SESSION['failedAuth'];
 		}
 	?>
+
+<?php
+		if (isset($_SESSION['flash'])): ?>
+			<div class="alert alert-primary" role="alert">
+				<?= htmlspecialchars($_SESSION['flash']) ?>
+			</div>
+
+			<?php unset($_SESSION['flash']); ?>
+		<?php endif; ?>
 	
 <div class="row">
     <div class="col-sm-auto">
