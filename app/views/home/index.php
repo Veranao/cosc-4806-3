@@ -1,5 +1,4 @@
 <?php require_once 'app/views/templates/header.php' ?>
-
 <div class="container">
     <div class="page-header" id="banner">
         <div class="row">
@@ -7,6 +6,14 @@
                 <h1>Hey</h1>
                 <p class="lead"> <?= date("F jS, Y"); ?></p>
             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="/secret" method="get">
+                <button type="submit" class="btn btn-primary"> Go to secret page </button>
+            </a>
         </div>
     </div>
 

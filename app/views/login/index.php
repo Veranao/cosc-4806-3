@@ -37,6 +37,7 @@
 		</form> 
 		<a href="/create" method="get">
 			<button type="submit" class="btn btn-primary"> Create Account </button>
+		</a>
 		</form>
 	</div>
 </div>

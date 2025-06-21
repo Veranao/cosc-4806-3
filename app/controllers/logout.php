@@ -6,6 +6,6 @@ class Logout extends Controller {
 	    session_start();
         $_SESSION = array();
         session_destroy();
-        header('location:/login');
+        $this->view('logout/index');
     }
 }
