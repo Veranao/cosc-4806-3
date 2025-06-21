@@ -7,7 +7,15 @@
             </div>
         </div>
     </div>
-
+	
+<?php
+		if (!isset($_SESSION['failedAuth'])) {
+				echo "This is your first attempt";
+		} else {
+			echo "This is unsuccessful attempt number " . $_SESSION['failedAuth'];
+		}
+	?>
+	
 <div class="row">
     <div class="col-sm-auto">
 		<form action="/login/verify" method="post" >
@@ -26,7 +34,7 @@
 		</form> 
 		<a href="/create" method="get">
 			<button type="submit" class="btn btn-primary"> Create Account </button>
-		</a>
+		</form>
 	</div>
 </div>
     <?php require_once 'app/views/templates/footer.php' ?>
