@@ -36,8 +36,8 @@ class User {
 			$_SESSION['auth'] = 1;
 			$_SESSION['username'] = ucwords($username);
 			unset($_SESSION['failedAuth']);
-			header('Location: /home');
-			die;
+			//die;
+      return true;
 		} else {
 			if(isset($_SESSION['failedAuth'])) {
 				$_SESSION['failedAuth'] ++; //increment
@@ -47,8 +47,8 @@ class User {
 
       $_SESSION['lastFailedTime'] = time();
       $this -> logLoginAttempt($username, 'bad');
-			header('Location: /login');
-			die;
+      return false;
+			//die;
 		}
   }
 

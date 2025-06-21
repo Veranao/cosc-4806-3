@@ -7,14 +7,6 @@
             </div>
         </div>
     </div>
-	
-<?php
-		if (!isset($_SESSION['failedAuth'])) {
-				echo "This is your first attempt";
-		} else {
-			echo "This is unsuccessful attempt number " . $_SESSION['failedAuth'];
-		}
-	?>
 
 <?php
 		if (isset($_SESSION['flash'])): ?>
@@ -38,7 +30,9 @@
 				<input required type="password" class="form-control" name="password">
 			</div>
             <br>
-		    <button type="submit" class="btn btn-primary" style="margin-bottom: 10px">Login</button>
+		    <button type="submit" class="btn btn-primary" style="margin-bottom: 10px" 
+							 <?= (isset($_SESSION['failedAuth']) && $_SESSION['failedAuth'] >= 3 && (time() - $_SESSION['lastFailedTime'] < 60)) ? 'disabled' : 'Login' ?>>
+					Login</button>
 		</fieldset>
 		</form> 
 		<a href="/create" method="get">
