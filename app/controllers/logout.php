@@ -7,5 +7,6 @@ class Logout extends Controller {
         $_SESSION = array();
         session_destroy();
         $this->view('logout/index');
+        die;
     }
 }

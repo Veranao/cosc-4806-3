@@ -19,26 +19,36 @@
 	
 <div class="row">
     <div class="col-sm-auto">
-		<form action="/login/verify" method="post" >
-		<fieldset>
-			<div class="form-group">
-				<label for="username">Username</label>
-				<input required type="text" class="form-control" name="username">
-			</div>
-			<div class="form-group">
-				<label for="password">Password</label>
-				<input required type="password" class="form-control" name="password">
-			</div>
-            <br>
-		    <button type="submit" class="btn btn-primary" style="margin-bottom: 10px" 
-							 <?= (isset($_SESSION['failedAuth']) && $_SESSION['failedAuth'] >= 3 && (time() - $_SESSION['lastFailedTime'] < 60)) ? 'disabled' : 'Login' ?>>
-					Login</button>
-		</fieldset>
-		</form> 
+			<form action="/login/verify" method="post" >
+				<fieldset>
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input required type="text" class="form-control" name="username">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input required type="password" class="form-control" name="password">
+					</div>
+		            <br>
+				    <button type="submit" class="btn btn-primary" style="margin-bottom: 10px" 
+										 <?= (isset($_SESSION['failedAuth']) && $_SESSION['failedAuth'] >= 3 && (time() - $_SESSION['lastFailedTime'] < 60)) ? 'disabled' : '				Login' ?>>Login</button>
+				</fieldset>
+			</form> 
+		</div>
+</div>
+<div class="row">
+	<div class="col-sm-auto">
 		<a href="/create" method="get">
 			<button type="submit" class="btn btn-primary"> Create Account </button>
 		</a>
-		</form>
 	</div>
 </div>
-    <?php require_once 'app/views/templates/footer.php' ?>
+<div class="row">
+	<div class="col-sm-auto pt-2">
+		<a href="/info" method="get">
+			<button type="submit" class="btn btn-secondary"> Assignment Information </button>
+		</a>
+	</div>
+</div>
+	
+	<?php require_once 'app/views/templates/footer.php' ?>
