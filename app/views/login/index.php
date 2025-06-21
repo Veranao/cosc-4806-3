@@ -31,7 +31,7 @@
 					</div>
 		            <br>
 				    <button type="submit" class="btn btn-primary" style="margin-bottom: 10px" 
-										 <?= (isset($_SESSION['failedAuth']) && $_SESSION['failedAuth'] >= 3 && (time() - $_SESSION['lastFailedTime'] < 60)) ? 'disabled' : '				Login' ?>>Login</button>
+										 >Login</button>
 				</fieldset>
 			</form> 
 		</div>
