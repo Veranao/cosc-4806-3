@@ -44,6 +44,8 @@ class User {
 			} else {
 				$_SESSION['failedAuth'] = 1;
 			}
+
+      $_SESSION['lastFailedTime'] = time();
       $this -> logLoginAttempt($username, 'bad');
 			header('Location: /login');
 			die;
