@@ -11,9 +11,9 @@ class Login extends Controller {
 			$password = $_REQUEST['password'];
 
 			if(isset($_SESSION['failedAuth']) && $_SESSION['failedAuth'] >= 3) {
-				$elapsed_time = time() - $_SESSION['lastFailedTime'] ?? 0;
+				$elapsed_time = time() - $_SESSION['lastFailedTime'];
 				if ($elapsed_time < 120) {
-					$_SESSION['flash'] = "You have failed too many times. Please wait" + (120 - $elapsed_time) + "before you can try logging in again.";
+					$_SESSION['flash'] = "You have failed too many times. Please wait " . (60 - $elapsed_time) . " seconds before you can try logging in again.";
 					header("Location: /login");
 					exit;
 				} else {
